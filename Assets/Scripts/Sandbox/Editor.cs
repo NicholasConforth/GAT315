@@ -13,6 +13,6 @@ public class Editor: MonoBehaviour
 
     public void StopAction()
     {
-        actions[0].StartAction();
+        actions[0].StopAction();
     }
 }

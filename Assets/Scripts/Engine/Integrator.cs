@@ -13,8 +13,8 @@ public static class Integrator
 
     public static void ImplicitEuler(Body body, float dt)
     {
-        body.position += (body.acceleration * dt);
-        body.velocity += (body.velocity * dt);
+        body.velocity += (body.acceleration * dt);
+        body.position += (body.velocity * dt);
         body.velocity *= (1f / (1f + (body.damping * dt)));
     }
 }

@@ -28,7 +28,7 @@ public class Creator : Action
             if(gameObject.TryGetComponent<Body>(out Body body))
             {
                 Vector2 force = Random.insideUnitSphere.normalized * speed.value;
-                body.AddForce(force);
+                body.AddForce(force, Body.eForceMode.Velocity);
                 body.damping = damping.value;
                 World.Instance.bodies.Add(body);
             }
