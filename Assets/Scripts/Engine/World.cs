@@ -37,16 +37,17 @@ public class World : MonoBehaviour
 
         if(!simulate.value) return;
 
-        while (timeAccumulator > fixedDeltaTime)
+        while (timeAccumulator >= fixedDeltaTime)
         {
             bodies.ForEach(body => body.Step(dt));
             bodies.ForEach(body => Integrator.ImplicitEuler(body, dt));
 
-            bodies.ForEach(body => body.force = Vector2.zero);
-            bodies.ForEach(body => body.acceleration = Vector2.zero);
 
             timeAccumulator -= fixedDeltaTime;
         }
+
+        bodies.ForEach(body => body.force = Vector2.zero);
+        bodies.ForEach(body => body.acceleration = Vector2.zero);
 
     }
 }

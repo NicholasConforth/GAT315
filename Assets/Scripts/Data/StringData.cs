@@ -7,5 +7,6 @@ using UnityEngine;
 public class StringData : ScriptableObject
 {
     public string value;
+    public static implicit operator string(StringData data) { return data.value; }
 }
 
